@@ -41,11 +41,11 @@ export function MobileNav({ activeSection, setActiveSection }: MobileNavProps) {
         <div className="flex items-center gap-3">
           <div className="relative h-10 w-10">
             <Image
-              src="/logo.gif"
+              src="/logo.png"
               alt="Atenas Roleplay"
               fill
-              className="object-contain"
-              unoptimized
+              className="object-contain drop-shadow-[0_0_10px_rgba(234,179,8,0.3)]"
+              priority
             />
           </div>
           <span className="text-sm font-bold text-primary tracking-wide">ATENAS RP</span>

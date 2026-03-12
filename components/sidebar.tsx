@@ -1,14 +1,14 @@
 "use client"
 
 import Image from "next/image"
-import { 
-  Shield, 
-  Users, 
-  Car, 
-  Building2, 
-  MessageSquare, 
-  Gavel, 
-  UserCog, 
+import {
+  Shield,
+  Users,
+  Car,
+  Building2,
+  MessageSquare,
+  Gavel,
+  UserCog,
   Briefcase
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -36,11 +36,11 @@ export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
       <div className="flex flex-col items-center justify-center border-b border-border px-6 py-6">
         <div className="relative h-24 w-24 mb-2">
           <Image
-            src="/logo.gif"
+            src="/logo.png"
             alt="Atenas Roleplay"
             fill
-            className="object-contain"
-            unoptimized
+            className="object-contain drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]"
+            priority
           />
         </div>
         <h1 className="text-lg font-bold text-primary tracking-wide">ATENAS ROLEPLAY</h1>
@@ -62,8 +62,8 @@ export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
                   onClick={() => setActiveSection(item.id)}
                   className={cn(
                     "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
-                    isActive 
-                      ? "bg-primary/15 text-primary border-l-2 border-primary" 
+                    isActive
+                      ? "bg-primary/15 text-primary border-l-2 border-primary"
                       : "text-muted-foreground hover:bg-primary/5 hover:text-foreground"
                   )}
                 >
@@ -81,7 +81,7 @@ export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
         <div className="flex items-center justify-center gap-2">
           <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
           <p className="text-xs text-muted-foreground">
-            Atenas Roleplay 2024
+            Atenas Roleplay 2026
           </p>
         </div>
       </div>
