@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { 
   Shield, 
   Users, 
@@ -8,8 +9,7 @@ import {
   MessageSquare, 
   Gavel, 
   UserCog, 
-  Briefcase,
-  Scale
+  Briefcase
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -20,7 +20,7 @@ interface SidebarProps {
 
 const menuItems = [
   { id: "gerais", label: "Regras Gerais", icon: Shield },
-  { id: "interacao", label: "Interacao entre Jogadores", icon: Users },
+  { id: "interacao", label: "Interacao", icon: Users },
   { id: "veiculos", label: "Veiculos", icon: Car },
   { id: "organizacoes", label: "Organizacoes", icon: Building2 },
   { id: "comunicacao", label: "Comunicacao", icon: MessageSquare },
@@ -33,19 +33,23 @@ export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
   return (
     <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-72 flex-col border-r border-border bg-sidebar">
       {/* Logo */}
-      <div className="flex h-16 items-center gap-3 border-b border-border px-6">
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-foreground">
-          <Scale className="h-5 w-5 text-background" />
+      <div className="flex flex-col items-center justify-center border-b border-border px-6 py-6">
+        <div className="relative h-24 w-24 mb-2">
+          <Image
+            src="/logo.gif"
+            alt="Atenas Roleplay"
+            fill
+            className="object-contain"
+            unoptimized
+          />
         </div>
-        <div>
-          <h1 className="text-sm font-semibold text-foreground">Atenas Roleplay</h1>
-          <p className="text-xs text-muted-foreground">Regras do Servidor</p>
-        </div>
+        <h1 className="text-lg font-bold text-primary tracking-wide">ATENAS ROLEPLAY</h1>
+        <p className="text-xs text-muted-foreground mt-1">Regras do Servidor</p>
       </div>
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto p-4">
-        <p className="mb-3 px-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-wider text-primary/70">
           Categorias
         </p>
         <ul className="space-y-1">
@@ -57,13 +61,13 @@ export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
                 <button
                   onClick={() => setActiveSection(item.id)}
                   className={cn(
-                    "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                    "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
                     isActive 
-                      ? "bg-accent text-accent-foreground" 
-                      : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
+                      ? "bg-primary/15 text-primary border-l-2 border-primary" 
+                      : "text-muted-foreground hover:bg-primary/5 hover:text-foreground"
                   )}
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className={cn("h-4 w-4", isActive && "text-primary")} />
                   {item.label}
                 </button>
               </li>
@@ -74,9 +78,12 @@ export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
 
       {/* Footer */}
       <div className="border-t border-border p-4">
-        <p className="text-xs text-muted-foreground text-center">
-          Atenas Roleplay 2024
-        </p>
+        <div className="flex items-center justify-center gap-2">
+          <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+          <p className="text-xs text-muted-foreground">
+            Atenas Roleplay 2024
+          </p>
+        </div>
       </div>
     </aside>
   )
