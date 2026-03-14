@@ -68,7 +68,7 @@ const rulesData: Record<string, { title: string; subtitle: string; description: 
       },
       {
         id: "1.8",
-        title: "Idade Minima",
+        title: "Idade Minimasss",
         content: "E necessario ter no minimo 16 anos para jogar no servidor Atenas Roleplay. Jogadores que aparentarem ser menores de idade poderao ser solicitados a comprovar idade.",
         type: "warning"
       }
