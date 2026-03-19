@@ -39,11 +39,11 @@ const rulesData: Record<string, { title: string; subtitle: string; description: 
     subtitle: "Assaltos e Roubos",
     description: "Normas básicas para a realização de ações criminosas estruturadas.",
     rules: [
-      { id: "9.1", title: "Animações e Binds", content: "Proibido utilizar comandos de animação ou binds após o FF da ação ou após 2 disparos[cite: 82].", type: "danger" },
-      { id: "9.2", title: "Imunidade de Trabalho", content: "Trabalhadores uniformizados e em serviço possuem imunidade[cite: 84].", type: "info" },
-      { id: "9.3", title: "QRR (Reforço)", content: "Só é permitido solicitar QRR antes de ser rendido. Após ser rendido, é proibido[cite: 87].", type: "warning" },
-      { id: "9.4", title: "Capacetes", content: "Proibido o uso de capacetes durante as ações para ambos os lados[cite: 93].", type: "danger" },
-      { id: "9.5", title: "Negociações", content: "Devem ocorrer via frequência de rádio. A polícia deve ser informada da frequência no início[cite: 107, 108].", type: "info" }
+      { id: "9.1", title: "Animações e Binds", content: "Proibido utilizar comandos de animação ou binds após o FF da ação ou após 2 disparos.", type: "danger" },
+      { id: "9.2", title: "Imunidade de Trabalho", content: "Trabalhadores uniformizados e em serviço possuem imunidade.", type: "info" },
+      { id: "9.3", title: "QRR (Reforço)", content: "Só é permitido solicitar QRR antes de ser rendido. Após ser rendido, é proibido.", type: "warning" },
+      { id: "9.4", title: "Capacetes", content: "Proibido o uso de capacetes durante as ações para ambos os lados.", type: "danger" },
+      { id: "9.5", title: "Negociações", content: "Devem ocorrer via frequência de rádio. A polícia deve ser informada da frequência no início.", type: "info" }
     ]
   },
   sequestro: {
@@ -51,9 +51,9 @@ const rulesData: Record<string, { title: string; subtitle: string; description: 
     subtitle: "Cativeiros e Resgates",
     description: "Diretrizes para a privação de liberdade de civis e oficiais.",
     rules: [
-      { id: "10.1", title: "Negociação Policial", content: "Permitida apenas a fuga limpa. Proibido exigir dinheiro ou recompensa pela liberação[cite: 111, 113].", type: "warning" },
-      { id: "10.2", title: "Membros de Facção", content: "Pode ser cobrado dinheiro ou item para a liberação de membros de facções rivais[cite: 115].", type: "success" },
-      { id: "10.3", title: "Sequestro de Oficiais", content: "Exige contexto forte, como a liberação de um líder da facção que esteja preso[cite: 116].", type: "danger" }
+      { id: "10.1", title: "Negociação Policial", content: "Permitida apenas a fuga limpa. Proibido exigir dinheiro ou recompensa pela liberação.", type: "warning" },
+      { id: "10.2", title: "Membros de Facção", content: "Pode ser cobrado dinheiro ou item para a liberação de membros de facções rivais.", type: "success" },
+      { id: "10.3", title: "Sequestro de Oficiais", content: "Exige contexto forte, como a liberação de um líder da facção que esteja preso.", type: "danger" }
     ]
   },
   caixa: {
@@ -61,9 +61,9 @@ const rulesData: Record<string, { title: string; subtitle: string; description: 
     subtitle: "Ação Livre Tipo 01",
     description: "Regras para roubos rápidos em caixas eletrônicos (Caixinha).",
     rules: [
-      { id: "11.1", title: "Chegada da Polícia", content: "O roubo deve ser cancelado e a fuga iniciada imediatamente[cite: 120].", type: "warning" },
-      { id: "11.2", title: "Contingente", content: "Bandidos: 01 a 04. Polícia: 02 a 06 oficiais[cite: 123, 124].", type: "info" },
-      { id: "11.3", title: "Tempo de Fuga", content: "Policiais devem dar o tempo necessário para os bandidos iniciarem a fuga[cite: 121].", type: "success" }
+      { id: "11.1", title: "Chegada da Polícia", content: "O roubo deve ser cancelado e a fuga iniciada imediatamente.", type: "warning" },
+      { id: "11.2", title: "Contingente", content: "Bandidos: 01 a 04. Polícia: 02 a 06 oficiais.", type: "info" },
+      { id: "11.3", title: "Tempo de Fuga", content: "Policiais devem dar o tempo necessário para os bandidos iniciarem a fuga.", type: "success" }
     ]
   },
   fuga: {
@@ -71,9 +71,9 @@ const rulesData: Record<string, { title: string; subtitle: string; description: 
     subtitle: "Perseguições Limpas",
     description: "Normas para fugas sem uso de armamento (Fuga Limpa).",
     rules: [
-      { id: "12.1", title: "Proibição de Armas", content: "Ações livres de fuga não permitem o uso de NENHUMA arma de fogo[cite: 126].", type: "danger" },
-      { id: "12.2", title: "Código 3", content: "Proibido em colisões. Permitido apenas se houver atropelamento ou morte de cidadão[cite: 127].", type: "warning" },
-      { id: "12.3", title: "Apoio (QRR)", content: "Não é permitido solicitar apoio (QRR) durante as Ações Livres Tipo 01[cite: 128].", type: "danger" }
+      { id: "12.1", title: "Proibição de Armas", content: "Ações livres de fuga não permitem o uso de NENHUMA arma de fogo.", type: "danger" },
+      { id: "12.2", title: "Código 3", content: "Proibido em colisões. Permitido apenas se houver atropelamento ou morte de cidadão.", type: "warning" },
+      { id: "12.3", title: "Apoio (QRR)", content: "Não é permitido solicitar apoio (QRR) durante as Ações Livres Tipo 01.", type: "danger" }
     ]
   },
   rua: {
@@ -81,10 +81,10 @@ const rulesData: Record<string, { title: string; subtitle: string; description: 
     subtitle: "Confrontos e QRU",
     description: "Regras para tiroteios e abordagens em vias públicas.",
     rules: [
-      { id: "13.1", title: "Voz e Desmaio", content: "Voz no máximo (Alto). Se desmaiar, não pode retornar à ação nem buscar pertences[cite: 132, 133].", type: "danger" },
-      { id: "13.2", title: "Paramédicos", content: "Com a chegada do SAMU, a ação deve ser encerrada imediatamente[cite: 137].", type: "info" },
-      { id: "13.3", title: "QRU de Disparo", content: "Se a polícia for recebida a tiros ao chegar em disparos, não será considerado RDM[cite: 144].", type: "warning" },
-      { id: "13.4", title: "Helicóptero", content: "A polícia pode utilizar no máximo 01 helicóptero com 01 atirador[cite: 134].", type: "info" }
+      { id: "13.1", title: "Voz e Desmaio", content: "Voz no máximo (Alto). Se desmaiar, não pode retornar à ação nem buscar pertences.", type: "danger" },
+      { id: "13.2", title: "Paramédicos", content: "Com a chegada do SAMU, a ação deve ser encerrada imediatamente.", type: "info" },
+      { id: "13.3", title: "QRU de Disparo", content: "Se a polícia for recebida a tiros ao chegar em disparos, não será considerado RDM.", type: "warning" },
+      { id: "13.4", title: "Helicóptero", content: "A polícia pode utilizar no máximo 01 helicóptero com 01 atirador.", type: "info" }
     ]
   },
   invasao: {
@@ -92,9 +92,9 @@ const rulesData: Record<string, { title: string; subtitle: string; description: 
     subtitle: "Operações Especiais",
     description: "Regras para intervenções policiais em sedes de organizações.",
     rules: [
-      { id: "14.1", title: "Pacificação", content: "Produto trava por 5 dias. Se a facção perder, o baú é limpo[cite: 147, 150].", type: "danger" },
-      { id: "14.2", title: "Invasão", content: "Comércio paralisado por 12 horas. Máximo de 1 invasão por semana por grupo[cite: 151, 152].", type: "warning" },
-      { id: "14.3", title: "Membros Extras", content: "Após o início da ação, nenhum membro extra pode entrar na cena[cite: 154].", type: "danger" }
+      { id: "14.1", title: "Pacificação", content: "Produto trava por 5 dias. Se a facção perder, o baú é limpo.", type: "danger" },
+      { id: "14.2", title: "Invasão", content: "Comércio paralisado por 12 horas. Máximo de 1 invasão por semana por grupo.", type: "warning" },
+      { id: "14.3", title: "Membros Extras", content: "Após o início da ação, nenhum membro extra pode entrar na cena.", type: "danger" }
     ]
   }
 }
