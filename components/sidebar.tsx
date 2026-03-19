@@ -27,6 +27,13 @@ const menuItems = [
   { id: "punicoes", label: "Punicoes", icon: Gavel },
   { id: "staff", label: "Staff", icon: UserCog },
   { id: "empregos", label: "Empregos", icon: Briefcase },
+
+  { id: "acoes", label: "Ações", icon: Gavel },
+  { id: "sequestro", label: "Sequestro", icon: Gavel },
+  { id: "caixa", label: "Caixa Eletrônico", icon: Gavel },
+  { id: "fuga", label: "Fuga Limpa", icon: Gavel },
+  { id: "rua", label: "Ações de Rua", icon: Gavel },
+  { id: "invasao", label: "Invasão/Pacif.", icon: Gavel }
 ]
 
 export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
