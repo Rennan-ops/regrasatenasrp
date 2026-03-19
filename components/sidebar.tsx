@@ -1,15 +1,23 @@
 "use client"
 
 import Image from "next/image"
-import {
-  Shield,
-  Users,
-  Car,
-  Building2,
-  MessageSquare,
-  Gavel,
-  UserCog,
-  Briefcase
+import { 
+  Shield, 
+  Users, 
+  Car, 
+  Building2, 
+  MessageSquare, 
+  Gavel, 
+  UserCog, 
+  Briefcase, 
+  Target, 
+  Skull, 
+  Zap, 
+  Footprints, 
+  Map, 
+  ShieldAlert,
+  Menu,
+  X 
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
