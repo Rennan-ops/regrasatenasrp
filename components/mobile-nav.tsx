@@ -20,12 +20,12 @@ const menuItems = [
   { id: "staff", label: "Staff", icon: UserCog },
   { id: "empregos", label: "Empregos", icon: Briefcase },
   // NOVAS CATEGORIAS ADICIONADAS AQUI:
-  { id: "acoes", label: "Ações", icon: Target },
-  { id: "sequestro", label: "Sequestro", icon: Skull },
-  { id: "caixa", label: "Caixa Eletrônico", icon: Zap },
-  { id: "fuga", label: "Fuga Limpa", icon: Footprints },
-  { id: "rua", label: "Ações de Rua", icon: Map },
-  { id: "invasao", label: "Invasão/Pacif.", icon: ShieldAlert },
+  { id: "acoes", label: "Ações", icon: Shield },
+  { id: "sequestro", label: "Sequestro", icon: Shield },
+  { id: "caixa", label: "Caixa Eletrônico", icon: Shield },
+  { id: "fuga", label: "Fuga Limpa", icon: Shield },
+  { id: "rua", label: "Ações de Rua", icon: Shield },
+  { id: "invasao", label: "Invasão/Pacif.", icon: Shield },
 ]
 
 export function MobileNav({ activeSection, setActiveSection }: MobileNavProps) {
