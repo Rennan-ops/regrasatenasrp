@@ -2,41 +2,35 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Menu, X, Shield, Users, Car, Building2, MessageSquare, Gavel, UserCog, Briefcase, Skull, Target, Zap, Footprints, Map, ShieldAlert } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { categoriesData } from "@/lib/rules-data"
 
 interface MobileNavProps {
-  activeSection: string
-  setActiveSection: (section: string) => void
+  activeCategory: string
+  activeRule: string | null
+  setActiveCategory: (category: string) => void
+  setActiveRule: (rule: string | null) => void
+  expandedCategories: string[]
+  toggleCategory: (category: string) => void
 }
 
-const menuItems = [
-  { id: "gerais", label: "Regras Gerais", icon: Shield },
-  { id: "interacao", label: "Interação", icon: Users },
-  { id: "veiculos", label: "Veículos", icon: Car },
-  { id: "organizacoes", label: "Organizações", icon: Building2 },
-  { id: "comunicacao", label: "Comunicação", icon: MessageSquare },
-  { id: "punicoes", label: "Punições", icon: Gavel },
-  { id: "staff", label: "Staff", icon: UserCog },
-  { id: "empregos", label: "Empregos", icon: Briefcase },
-  // NOVAS CATEGORIAS ADICIONADAS AQUI:
-  { id: "acoes", label: "Ações", icon: Target },
-  { id: "sequestro", label: "Sequestro", icon: Skull },
-  { id: "caixa", label: "Caixa Eletrônico", icon: Zap },
-  { id: "fuga", label: "Fuga Limpa", icon: Footprints },
-  { id: "rua", label: "Ações de Rua", icon: Map },
-  { id: "invasao", label: "Invasão/Pacif.", icon: ShieldAlert },
-]
-
-export function MobileNav({ activeSection, setActiveSection }: MobileNavProps) {
+export function MobileNav({ 
+  activeCategory, 
+  activeRule, 
+  setActiveCategory, 
+  setActiveRule,
+  expandedCategories,
+  toggleCategory 
+}: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="lg:hidden">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between border-b border-border bg-background/95 backdrop-blur px-4">
+      <header className="fixed top-0 left-0 right-0 z-50 flex h-14 items-center justify-between border-b border-border bg-background/95 backdrop-blur px-4">
         <div className="flex items-center gap-3">
-          <div className="relative h-10 w-10">
+          <div className="relative h-9 w-9">
             <Image
               src="/logo.png"
               alt="Atenas Roleplay"
@@ -49,7 +43,7 @@ export function MobileNav({ activeSection, setActiveSection }: MobileNavProps) {
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border hover:bg-primary/10 hover:border-primary/50 transition-colors"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-border hover:bg-primary/10 hover:border-primary/50 transition-colors"
         >
           {isOpen ? <X className="h-5 w-5 text-primary" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -63,35 +57,74 @@ export function MobileNav({ activeSection, setActiveSection }: MobileNavProps) {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed top-16 left-0 right-0 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-border bg-background transition-transform duration-200",
+          "fixed top-14 left-0 right-0 z-40 max-h-[calc(100vh-3.5rem)] overflow-y-auto border-b border-border bg-background transition-transform duration-200",
           isOpen ? "translate-y-0" : "-translate-y-full pointer-events-none"
         )}
       >
         <nav className="p-4">
-          <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-wider text-primary/70">
-            Categorias
-          </p>
           <ul className="space-y-1">
-            {menuItems.map((item) => {
-              const Icon = item.icon
-              const isActive = activeSection === item.id
+            {categoriesData.map((category, index) => {
+              const isExpanded = expandedCategories.includes(category.id)
+              const isActiveCategory = activeCategory === category.id
+              
               return (
-                <li key={item.id}>
+                <li key={category.id}>
                   <button
-                    onClick={() => {
-                      setActiveSection(item.id)
-                      setIsOpen(false)
-                    }}
+                    onClick={() => toggleCategory(category.id)}
                     className={cn(
-                      "flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-all duration-200",
-                      isActive 
-                        ? "bg-primary/15 text-primary border-l-2 border-primary" 
-                        : "text-muted-foreground hover:bg-primary/5 hover:text-foreground"
+                      "flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                      isActiveCategory
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                     )}
                   >
-                    <Icon className={cn("h-4 w-4", isActive && "text-primary")} />
-                    {item.label}
+                    <div className="flex items-center gap-2.5">
+                      <span className={cn(
+                        "flex items-center justify-center h-5 w-5 rounded text-xs font-bold",
+                        isActiveCategory ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                      )}>
+                        {index + 1}
+                      </span>
+                      <span className="truncate">{category.name}</span>
+                    </div>
+                    <ChevronDown 
+                      className={cn(
+                        "h-4 w-4 shrink-0 transition-transform duration-200",
+                        isExpanded && "rotate-180"
+                      )} 
+                    />
                   </button>
+                  
+                  {/* Rules list */}
+                  <div className={cn(
+                    "overflow-hidden transition-all duration-200",
+                    isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  )}>
+                    <ul className="ml-4 mt-1 space-y-0.5 border-l border-border pl-3">
+                      {category.rules.map((rule) => {
+                        const isActive = activeRule === rule.id && activeCategory === category.id
+                        return (
+                          <li key={rule.id}>
+                            <button
+                              onClick={() => {
+                                setActiveCategory(category.id)
+                                setActiveRule(rule.id)
+                                setIsOpen(false)
+                              }}
+                              className={cn(
+                                "flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 text-sm transition-all duration-150",
+                                isActive
+                                  ? "bg-primary/15 text-primary font-medium"
+                                  : "text-muted-foreground hover:bg-muted/30 hover:text-foreground"
+                              )}
+                            >
+                              <span className="truncate">{rule.title}</span>
+                            </button>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </div>
                 </li>
               )
             })}
@@ -100,7 +133,7 @@ export function MobileNav({ activeSection, setActiveSection }: MobileNavProps) {
       </div>
 
       {/* Spacer for fixed header */}
-      <div className="h-16" />
+      <div className="h-14" />
     </div>
   )
 }

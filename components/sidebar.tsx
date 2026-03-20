@@ -5,51 +5,52 @@ import {
   Shield, 
   Users, 
   Car, 
-  Building2, 
-  MessageSquare, 
   Gavel, 
-  UserCog, 
-  Briefcase, 
-  Target, 
   Skull, 
-  Zap, 
-  Footprints, 
-  Map, 
-  ShieldAlert,
-  Menu,
-  X 
+  ShieldCheck,
+  ChevronDown,
+  Briefcase,
+  DollarSign,
+  Settings,
+  Swords,
+  Theater
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { categoriesData } from "@/lib/rules-data"
 
 interface SidebarProps {
-  activeSection: string
-  setActiveSection: (section: string) => void
+  activeCategory: string
+  activeRule: string | null
+  setActiveCategory: (category: string) => void
+  setActiveRule: (rule: string | null) => void
+  expandedCategories: string[]
+  toggleCategory: (category: string) => void
 }
 
-const menuItems = [
-  { id: "gerais", label: "Regras Gerais", icon: Shield },
-  { id: "interacao", label: "Interacao", icon: Users },
-  { id: "veiculos", label: "Veiculos", icon: Car },
-  { id: "organizacoes", label: "Organizacoes", icon: Building2 },
-  { id: "comunicacao", label: "Comunicacao", icon: MessageSquare },
-  { id: "punicoes", label: "Punicoes", icon: Gavel },
-  { id: "staff", label: "Staff", icon: UserCog },
-  { id: "empregos", label: "Empregos", icon: Briefcase },
+const categoryIcons: Record<string, typeof Shield> = {
+  "regras-gerais": Shield,
+  "ilegal": Skull,
+  "policia": ShieldCheck,
+  "servicos": Briefcase,
+  "economia": DollarSign,
+  "administracao": Settings,
+  "combate": Swords,
+  "interacao": Theater,
+}
 
-  { id: "acoes", label: "Ações", icon: Skull },
-  { id: "sequestro", label: "Sequestro", icon: Skull },
-  { id: "caixa", label: "Caixa Eletrônico", icon: Skull },
-  { id: "fuga", label: "Fuga Limpa", icon: Skull },
-  { id: "rua", label: "Ações de Rua", icon: Skull },
-  { id: "invasao", label: "Invasão/Pacif.", icon: Skull }
-]
-
-export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
+export function Sidebar({ 
+  activeCategory, 
+  activeRule, 
+  setActiveCategory, 
+  setActiveRule,
+  expandedCategories,
+  toggleCategory 
+}: SidebarProps) {
   return (
     <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-72 flex-col border-r border-border bg-sidebar">
       {/* Logo */}
       <div className="flex flex-col items-center justify-center border-b border-border px-6 py-6">
-        <div className="relative h-24 w-24 mb-2">
+        <div className="relative h-20 w-20 mb-2">
           <Image
             src="/logo.png"
             alt="Atenas Roleplay"
@@ -63,28 +64,70 @@ export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto p-4">
-        <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-wider text-primary/70">
-          Categorias
-        </p>
+      <nav className="flex-1 overflow-y-auto p-3">
         <ul className="space-y-1">
-          {menuItems.map((item) => {
-            const Icon = item.icon
-            const isActive = activeSection === item.id
+          {categoriesData.map((category, index) => {
+            const Icon = categoryIcons[category.id] || Shield
+            const isExpanded = expandedCategories.includes(category.id)
+            const isActiveCategory = activeCategory === category.id
+            
             return (
-              <li key={item.id}>
+              <li key={category.id}>
                 <button
-                  onClick={() => setActiveSection(item.id)}
+                  onClick={() => toggleCategory(category.id)}
                   className={cn(
-                    "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
-                    isActive
-                      ? "bg-primary/15 text-primary border-l-2 border-primary"
-                      : "text-muted-foreground hover:bg-primary/5 hover:text-foreground"
+                    "flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                    isActiveCategory
+                      ? "bg-primary/10 text-primary"
+                      : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                   )}
                 >
-                  <Icon className={cn("h-4 w-4", isActive && "text-primary")} />
-                  {item.label}
+                  <div className="flex items-center gap-2.5">
+                    <span className={cn(
+                      "flex items-center justify-center h-5 w-5 rounded text-xs font-bold",
+                      isActiveCategory ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                    )}>
+                      {index + 1}
+                    </span>
+                    <span className="truncate">{category.name}</span>
+                  </div>
+                  <ChevronDown 
+                    className={cn(
+                      "h-4 w-4 shrink-0 transition-transform duration-200",
+                      isExpanded && "rotate-180"
+                    )} 
+                  />
                 </button>
+                
+                {/* Rules list */}
+                <div className={cn(
+                  "overflow-hidden transition-all duration-200",
+                  isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                )}>
+                  <ul className="ml-4 mt-1 space-y-0.5 border-l border-border pl-3">
+                    {category.rules.map((rule) => {
+                      const isActive = activeRule === rule.id && activeCategory === category.id
+                      return (
+                        <li key={rule.id}>
+                          <button
+                            onClick={() => {
+                              setActiveCategory(category.id)
+                              setActiveRule(rule.id)
+                            }}
+                            className={cn(
+                              "flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 text-sm transition-all duration-150",
+                              isActive
+                                ? "bg-primary/15 text-primary font-medium"
+                                : "text-muted-foreground hover:bg-muted/30 hover:text-foreground"
+                            )}
+                          >
+                            <span className="truncate">{rule.title}</span>
+                          </button>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
               </li>
             )
           })}
@@ -96,7 +139,7 @@ export function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
         <div className="flex items-center justify-center gap-2">
           <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
           <p className="text-xs text-muted-foreground">
-            Atenas Roleplay 2026
+            Atenas Roleplay 2025
           </p>
         </div>
       </div>
