@@ -34,7 +34,7 @@ export const categoriesData: Category[] = [
         title: "Ghost",
         blocks: [
           { type: "definicao", content: "Quando um jogador acompanha uma **live ou transmissão** de outro player e utiliza o que viu ou ouviu para agir dentro do jogo, mesmo que seu personagem não tenha como saber daquela informação." },
-          { type: "punicao", content: "Ban permanente imediato." }
+          { type: "punicao", content: "1ª vez: Advertência | 2ª vez: Ban permanente" }
         ]
       },
       {
@@ -42,8 +42,8 @@ export const categoriesData: Category[] = [
         title: "Powergaming",
         blocks: [
           { type: "definicao", content: "É realizar algo dentro do jogo que seria **impossível** fazer na realidade." },
-          { type: "exemplo", content: "Correr uma maratona após levar um tiro na perna, carregar 50 armas no inventário, ou curar-se instantaneamente de ferimentos graves." },
-          { type: "punicao", content: "1ª vez: Advertência | 2ª vez: Ban 3 dias | 3ª vez: Ban 7 dias" }
+          { type: "exemplo", content: "Estar em uma fuga ou perseguição, seu veículo capotar e você continuar a correr." },
+          { type: "punicao", content: "1ª vez: Advertência | 2ª vez: Advertência | 3ª vez: Ban 3 dias" }
         ]
       },
       {
@@ -52,7 +52,7 @@ export const categoriesData: Category[] = [
         blocks: [
           { type: "definicao", content: "Desconectar do servidor durante uma situação de RP ativa para evitar consequências, seja durante um tiroteio, perseguição, sequestro ou qualquer interação em andamento." },
           { type: "importante", content: "Caso tenha problemas técnicos, avise imediatamente no Discord com provas (print/vídeo)." },
-          { type: "punicao", content: "Ban de 7 dias | Reincidência: Ban permanente" }
+          { type: "punicao", content: "1ª vez: Advertência | 2ª vez: Advertência | 3ª vez: Ban 7 dias" }
         ]
       },
       {
@@ -78,8 +78,8 @@ export const categoriesData: Category[] = [
         title: "Fail RP",
         blocks: [
           { type: "definicao", content: "Realizar ações que não fazem sentido dentro do contexto de roleplay ou que seriam impossíveis/ilógicas na vida real." },
-          { type: "exemplo", content: "Pular de um prédio de 10 andares e sair correndo, ignorar que está ferido após um acidente grave, correr após levar vários tiros." },
-          { type: "punicao", content: "1ª vez: Advertência | 2ª vez: Ban 1 dia | 3ª vez: Ban 3 dias" }
+          { type: "exemplo", content: "Pular de um prédio de 10 andares e sair correndo." },
+          { type: "punicao", content: "1ª vez: Advertência | 2ª vez: Ban 3 dia | 3ª vez: Ban 7 dias" }
         ]
       },
       {
@@ -98,7 +98,7 @@ export const categoriesData: Category[] = [
           { type: "definicao", content: "Áreas onde ações criminosas e conflitos são estritamente proibidos." },
           { type: "importante", content: "Hospital Central, Delegacia Central, Prefeitura, Mecânicas Oficiais, Spawn de novatos." },
           { type: "proibicao", content: "Roubar, sequestrar, matar, iniciar perseguições ou qualquer ação hostil dentro dessas áreas." },
-          { type: "punicao", content: "Crime em zona segura: Ban 5 dias" }
+          { type: "punicao", content: "Crime em zona segura: Ban 3 dias" }
         ]
       },
       {
@@ -108,7 +108,7 @@ export const categoriesData: Category[] = [
           { type: "definicao", content: "Uso de falhas do jogo ou mecânicas não intencionais para obter vantagem." },
           { type: "permitido", content: "Reportar bugs encontrados à staff imediatamente." },
           { type: "proibicao", content: "Usar qualquer bug para vantagem própria, duplicação de itens/dinheiro, uso de programas externos (hacks, cheats, macros)." },
-          { type: "punicao", content: "Uso de bug: Ban 7-30 dias | Hack/Cheat: Ban permanente sem apelação" }
+          { type: "punicao", content: "Uso de bug: Ban 7-30 dias | Reincidência de uso de bug: Ban permanente | Hack/Cheat: Ban permanente sem apelação" }
         ]
       }
     ]
