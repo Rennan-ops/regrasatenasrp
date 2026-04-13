@@ -320,7 +320,7 @@ export const categoriesData: Category[] = [
         id: "respeito-mecanica",
         title: "Respeito em Primeiro Lugar",
         blocks: [
-          { type: "definicao", content: "Trate todos com respeito, independentemente do cargo dentro da mecânica OverSpeed." },
+          { type: "definicao", content: "Trate todos com respeito, independentemente do cargo dentro da mecânica." },
           { type: "proibicao", content: "Ofensas, preconceito ou toxicidade não serão tolerados." },
           { type: "importante", content: "Discussões devem ser resolvidas com maturidade." }
         ]
@@ -339,7 +339,7 @@ export const categoriesData: Category[] = [
         id: "regras-trabalho-mecanica",
         title: "Regras de Trabalho",
         blocks: [
-          { type: "requisito", content: "Siga a hierarquia da OverSpeed." },
+          { type: "requisito", content: "Siga a hierarquia da mecânica." },
           { type: "proibicao", content: "Não interfira em atendimentos de outros mecânicos sem autorização." },
           { type: "importante", content: "Sempre registre serviços quando necessário." },
           { type: "requisito", content: "Mantenha organização e profissionalismo durante o trabalho." }
@@ -378,7 +378,7 @@ export const categoriesData: Category[] = [
         blocks: [
           { type: "definicao", content: "O descumprimento das regras pode resultar em diferentes níveis de punição." },
           { type: "punicao", content: "**Aviso** → **Suspensão** → **Demissão/Banimento**" },
-          { type: "importante", content: "As regras podem ser atualizadas a qualquer momento. Ao permanecer na OverSpeed, você concorda com todas elas." }
+          { type: "importante", content: "As regras podem ser atualizadas a qualquer momento. Ao permanecer na mecânica, você concorda com todas elas." }
         ]
       }
     ]
