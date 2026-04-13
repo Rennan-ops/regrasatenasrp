@@ -313,6 +313,77 @@ export const categoriesData: Category[] = [
     ]
   },
   {
+    id: "mecanica",
+    name: "Mecânica",
+    rules: [
+      {
+        id: "respeito-mecanica",
+        title: "Respeito em Primeiro Lugar",
+        blocks: [
+          { type: "definicao", content: "Trate todos com respeito, independentemente do cargo dentro da mecânica OverSpeed." },
+          { type: "proibicao", content: "Ofensas, preconceito ou toxicidade não serão tolerados." },
+          { type: "importante", content: "Discussões devem ser resolvidas com maturidade." }
+        ]
+      },
+      {
+        id: "proibicoes-mecanica",
+        title: "Proibições da Mecânica",
+        blocks: [
+          { type: "proibicao", content: "Spam, flood ou divulgação sem permissão." },
+          { type: "proibicao", content: "Uso de hacks, bugs ou qualquer forma de trapaça." },
+          { type: "proibicao", content: "Desrespeitar membros da equipe ou clientes." },
+          { type: "proibicao", content: "Criar confusão proposital ou atrapalhar atendimentos." }
+        ]
+      },
+      {
+        id: "regras-trabalho-mecanica",
+        title: "Regras de Trabalho",
+        blocks: [
+          { type: "requisito", content: "Siga a hierarquia da OverSpeed." },
+          { type: "proibicao", content: "Não interfira em atendimentos de outros mecânicos sem autorização." },
+          { type: "importante", content: "Sempre registre serviços quando necessário." },
+          { type: "requisito", content: "Mantenha organização e profissionalismo durante o trabalho." }
+        ]
+      },
+      {
+        id: "pagamentos-servicos",
+        title: "Pagamentos e Serviços",
+        blocks: [
+          { type: "requisito", content: "Combine valores **antes** de iniciar qualquer serviço." },
+          { type: "proibicao", content: "Não aplique golpes ou engane clientes." },
+          { type: "importante", content: "Pagamentos devem ser confirmados corretamente." }
+        ]
+      },
+      {
+        id: "uso-canais",
+        title: "Uso dos Canais",
+        blocks: [
+          { type: "requisito", content: "Utilize cada canal para sua função correta." },
+          { type: "proibicao", content: "Evite mensagens fora de contexto." },
+          { type: "importante", content: "Respeite canais internos (uso exclusivo da equipe)." }
+        ]
+      },
+      {
+        id: "membros-equipe",
+        title: "Membros da Equipe",
+        blocks: [
+          { type: "requisito", content: "Seja ativo e comprometido." },
+          { type: "requisito", content: "Atenda clientes com respeito e agilidade." },
+          { type: "importante", content: "Problemas devem ser reportados à liderança." }
+        ]
+      },
+      {
+        id: "punicoes-mecanica",
+        title: "Punições",
+        blocks: [
+          { type: "definicao", content: "O descumprimento das regras pode resultar em diferentes níveis de punição." },
+          { type: "punicao", content: "**Aviso** → **Suspensão** → **Demissão/Banimento**" },
+          { type: "importante", content: "As regras podem ser atualizadas a qualquer momento. Ao permanecer na OverSpeed, você concorda com todas elas." }
+        ]
+      }
+    ]
+  },
+  {
     id: "economia",
     name: "Economia",
     rules: [

@@ -32,6 +32,7 @@ const categoryIcons: Record<string, typeof Shield> = {
   "ilegal": Skull,
   "policia": ShieldCheck,
   "servicos": Briefcase,
+  "mecanica": Car,
   "economia": DollarSign,
   "administracao": Settings,
   "combate": Swords,
